@@ -38,7 +38,7 @@ def get_headers(from_file):
     :param from_file: CSV file to return headers from
     :return: List of strings, CSV headers
     """
-    with open(from_file, 'r') as ff:
+    with open(from_file, 'r', encoding="utf8") as ff:
         reader = csv.DictReader(ff)
         return reader.fieldnames
 
@@ -70,7 +70,7 @@ def load_conversion_table(table_file):
             e.g T_Text
     """
     out_dicts = []
-    with open(table_file, 'r') as t_f:
+    with open(table_file, 'r', encoding="utf-8") as t_f:
         reader = csv.DictReader(t_f)
         for row in reader:
             #There's almost certainly a better way of doing this
