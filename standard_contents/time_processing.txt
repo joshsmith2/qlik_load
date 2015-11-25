@@ -1,0 +1,3 @@
+PurgeChar(Left(Replace(Replace([twitter.tweet/created],'T',' '),'.000Z',''),10),'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ[]	 ') as T_CreatedDay,
+PurgeChar(Left(Replace(Replace([twitter.tweet/created],'T',' '),'.000Z',''),16),'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ(),[]	') as T_CreatedDayHourMinute,
+PurgeChar(Left(Replace(Replace([twitter.tweet/created],'T',' '),'.000Z',''),13),'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ(),[]	') as T_CreatedDayHour,
