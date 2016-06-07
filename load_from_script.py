@@ -30,6 +30,9 @@ def get_arguments():
 
     return parser.parse_args()
 
+def get_root_dir():
+    return os.path.abspath(os.path.dirname(os.path.realpath(__file__)))
+
 
 def get_headers(from_file):
     """
@@ -111,7 +114,9 @@ def print_table_writer(out_file, headers, conversions, csv_file):
             if not conversion_found:
                 o.write("\t[{}],\n".format(header))
             if header == "twitter.tweet/created":
-                with open("standard_contents/time_processing.txt", 'r') as scf:
+                file_path = os.path.join('standard_contents','time_processing.txt')
+                time_path = os.path.join(get_root_dir(),file_path)
+                with open(time_path, 'r') as scf:
                     for line in scf.readlines():
                         o.write("\t" + line)
 
@@ -120,7 +125,6 @@ def print_table_writer(out_file, headers, conversions, csv_file):
         o.write("[{}]\n".format(csv_file))
         o.write("(txt, codepage is 1252, embedded labels, delimiter is ',', "
                 "msq);")
-
 
 def main():
     out_file_default = "load_out.txt"
@@ -150,7 +154,6 @@ def main():
     headers = get_headers(csv_path)
     conversions = load_conversion_table(conversion_table)
     print_table_writer(out_file, headers, conversions, csv_path)
-
 
 if __name__ == "__main__":
     main()
