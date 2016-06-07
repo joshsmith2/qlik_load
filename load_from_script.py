@@ -143,7 +143,7 @@ def main():
     if not args.header_file:
         header_file = header_file_default
     else:
-        out_file = args.header_file
+        header_file = args.header_file
 
     if not args.conversion_table:
         conversion_table = conversion_table_default
