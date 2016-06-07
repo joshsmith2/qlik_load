@@ -115,7 +115,7 @@ def print_table_writer(out_file, headers, conversions, csv_file):
                     for line in scf.readlines():
                         o.write("\t" + line)
 
-        o.write("\t1 as TCount\n\n")
+        o.write("\t1 as Count\n\n")
         o.write("FROM\n")
         o.write("[{}]\n".format(csv_file))
         o.write("(txt, codepage is 1252, embedded labels, delimiter is ',', "
